@@ -21,7 +21,8 @@ public class RegisterPO {
 		nameForm = (MobileElement) driver.findElementById("br.com.alura.aluraesporte:id/input_nome");
 		passForm = (MobileElement) driver.findElementById("br.com.alura.aluraesporte:id/input_senha");
 		confirmPassForm = (MobileElement) driver.findElementById("br.com.alura.aluraesporte:id/input_confirmar_senha");
-		registerButton = (MobileElement) driver.findElementById("br.com.alura.aluraesporte:id/cadastro_usuario_botao_cadastrar");
+		registerButton = (MobileElement) driver
+				.findElementById("br.com.alura.aluraesporte:id/cadastro_usuario_botao_cadastrar");
 	}
 	
 	private void fillForm(String user, String password, String confirmPass) {
@@ -30,9 +31,10 @@ public class RegisterPO {
 		confirmPassForm.setValue(confirmPass);
 	}
 	
-	public void register(String user, String password, String confirmPass) {
+	public LoginPO register(String user, String password, String confirmPass) {
 		fillForm(user, password, confirmPass);
 		registerButton.click();
+		return new LoginPO(driver);
 	}
 
 	public String errorMsgVerify() {
