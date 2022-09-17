@@ -3,15 +3,15 @@ package com.yamamoto64.pageobjects;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 
-public class LoginPO {
+public class LoginPO extends BasePO {
 
 	private MobileElement registerButton;
-	private AppiumDriver driver;
 
 	public LoginPO(AppiumDriver driver) {
-		this.driver = driver;
+		super(driver);
 	}
 
+	@Override
 	public void findElements() {
 		registerButton = (MobileElement) driver
 				.findElementById("br.com.alura.aluraesporte:id/login_botao_cadastrar_usuario");
